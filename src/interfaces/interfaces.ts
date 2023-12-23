@@ -1,11 +1,9 @@
 interface iUser {
-    id: number;
-    name: string;
-    surname: string;
-    email: string;
-    pwd: string
+  id: number;
+  name: string;
+  surname: string;
+  email: string;
+  pwd: string;
 }
 
-
-
-export {iUser}
+export { iUser };
