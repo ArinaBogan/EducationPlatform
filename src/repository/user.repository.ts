@@ -1,4 +1,5 @@
-import pool from "../../db";
+import { log } from "console";
+import pool from "../db";
 import { iUser } from '../interfaces/interfaces';
 
 async function getAllUsersDB(): Promise<iUser[]> {
@@ -33,4 +34,19 @@ async function updateUserDB(id: number, name: string, surname: string, email: st
 
 }
 
-export { getAllUsersDB, getUserByIdDB, updateUserDB };
+async function deleteUserDB(id: number): Promise<iUser[]> {
+    const client = await pool.connect();
+    try {
+        await client.query('BEGIN');
+        const sql = `delete from users where id=$1 returning*`;
+        const data = (await client.query(sql, [id])).rows;
+        await client.query('COMMIT');
+        return data;
+    } catch (error: any) {
+        await client.query('ROLLBACK');
+        console.log(`deleteUserDB:${error.message}`);
+        return [];
+    }
+}
+
+export { getAllUsersDB, getUserByIdDB, updateUserDB,deleteUserDB };

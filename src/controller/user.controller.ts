@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { getAllUsers, getUserById,updateUser} from '../service/user.service'
+import { getAllUsers, getUserById, updateUser,deleteUser } from '../service/user.service'
 const route = express.Router()
 
 route.get('/', async (req: Request, res: Response) => {
@@ -25,11 +25,22 @@ route.put('/:id', async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const { name, surname, email, pwd } = req.body;
-        const data = await updateUser(id,name,surname,email,pwd);
+        const data = await updateUser(id, name, surname, email, pwd);
         res.status(200).send(data)
-    } catch (error:any) {
+    } catch (error: any) {
         res.status(404).send(error.message)
     }
-})
+});
+
+route.delete('/id', async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const { name, surname, email, pwd } = req.body;
+        const data = await deleteUser(id);
+        res.status(200).send(data);
+    } catch (error: any) {
+        res.status(404).send(error.message);
+    }
+});
 
 export default route;

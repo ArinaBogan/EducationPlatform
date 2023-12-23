@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import user from './src/controller/user.controller'
+import user from './controller/user.controller'
 
 const app = express();
 
