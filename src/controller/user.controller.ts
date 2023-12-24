@@ -1,45 +1,46 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { getAllUsers, getUserById, updateUser, deleteUser } from '../service/user.service';
+import { buildResponse } from '../helper/buildResponse';
+import { isValidUserBody, isValidUserId } from '../helper/validation';
 const route = express.Router();
 
 route.get('/', async (req: Request, res: Response) => {
   try {
     const data = await getAllUsers();
-    res.status(200).send(data);
+    buildResponse(res, 200, data);
   } catch (error: any) {
-    res.status(404).send(error.message);
+    buildResponse(res, 404, error.message);
   }
 });
 
-route.get('/:id', async (req: Request, res: Response) => {
+route.get('/:id', isValidUserId, async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const data = await getUserById(id);
-    res.status(200).send(data);
+    buildResponse(res, 200, data);
   } catch (error: any) {
-    res.status(404).send(error.message);
+    buildResponse(res, 404, error.message);
   }
 });
 
-route.put('/:id', async (req: Request, res: Response) => {
+route.put('/:id', isValidUserBody, isValidUserId, async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { name, surname, email, pwd } = req.body;
     const data = await updateUser(id, name, surname, email, pwd);
-    res.status(200).send(data);
+    buildResponse(res, 200, data);
   } catch (error: any) {
-    res.status(404).send(error.message);
+    buildResponse(res, 404, error.message);
   }
 });
 
-route.delete('/id', async (req: Request, res: Response) => {
+route.delete('/id', isValidUserBody, isValidUserId, async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const { name, surname, email, pwd } = req.body;
     const data = await deleteUser(id);
-    res.status(200).send(data);
+    buildResponse(res, 200, data);
   } catch (error: any) {
-    res.status(404).send(error.message);
+    buildResponse(res, 404, error.message);
   }
 });
 
