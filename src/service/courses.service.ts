@@ -1,34 +1,35 @@
-import { iCourses } from '../interfaces/interfaces';
-import { getAllCoursesDB, getCourseByIdDB, createCourseDB, updateCourseDB, deleteCourseDB } from '../repository/courses.repository';
+import ExceptionType from '../helper/exception';
+import { iCourse } from '../interfaces/interfaces';
+import { getAllCourseDB, getCourseByIdDB, postCourseDB, updateCourseDB, deleteCourseByIdDB } from '../repository/courses.repository';
 
-async function getAllCourses(): Promise<iCourses[]> {
-  const data = await getAllCoursesDB();
-  if (!data.length) throw new Error('no data');
+async function getAllCourse(): Promise<iCourse[]> {
+  const data = await getAllCourseDB();
+  if (!data.length) throw new Error('ExceptionType.DB_GET_COURSES_NOT_FOUND');
   return data;
 }
 
-async function getCourseById(id: number): Promise<iCourses[]> {
+async function getCourseById(id: number): Promise<iCourse[]> {
   const data = await getCourseByIdDB(id);
-  if (!data.length) throw new Error('no data');
+  if (!data.length) throw new Error('');
   return data;
 }
 
-async function createCourse(course: string): Promise<iCourses[]> {
-  const data = await createCourseDB(course);
-  if (!data.length) throw new Error('no data');
+async function postCourse(course: string): Promise<iCourse[]> {
+  const data = await postCourseDB(course);
+  if (!data.length) throw new Error('ExceptionType.DB_POST_COURSES_NOT_UPDATE');
   return data;
 }
 
-async function updateCourse(id: number, course: string): Promise<iCourses[]> {
+async function updateCourse(id: number, course: string): Promise<iCourse[]> {
   const data = await updateCourseDB(id, course);
-  if (!data.length) throw new Error('no data');
+  if (!data.length) throw new Error('ExceptionType.DB_PUT_COURSES_NOT_UPDATE');
   return data;
 }
 
-async function deleteCourse(id: number): Promise<iCourses[]> {
-  const data = await deleteCourseDB(id);
-  if (!data.length) throw new Error('no data');
+async function deleteCourseById(id: number): Promise<iCourse[]> {
+  const data = await deleteCourseByIdDB(id);
+  if (!data.length) throw new Error('ExceptionType.DB_DELETE_COURSE_NOT_DELETE');
   return data;
 }
 
-export { getAllCourses, getCourseById, createCourse, updateCourse, deleteCourse };
+export { getAllCourse, getCourseById, postCourse, updateCourse, deleteCourseById };

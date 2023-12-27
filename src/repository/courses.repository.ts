@@ -1,63 +1,63 @@
 import pool from '../db';
-import { iCourses } from '../interfaces/interfaces';
+import { iCourse } from '../interfaces/interfaces';
 
-async function getAllCoursesDB(): Promise<iCourses[]> {
-  const client = await pool.connect;
+async function getAllCourseDB(): Promise<iCourse[]> {
+  const client = await pool.connect();
   const sql = 'select * from courses';
   const data = (await client.query(sql)).rows;
   return data;
 }
 
-async function getCourseByIdDB(id: number): Promise<iCourses[]> {
+async function getCourseByIdDB(id: number): Promise<iCourse[]> {
   const client = await pool.connect();
-  const sql = `select * from courses where id =$1`;
+  const sql = 'select * from courses where id=$1';
   const data = (await client.query(sql, [id])).rows;
   return data;
 }
 
-async function createCourseDB(course: string): Promise<iCourses[]> {
+async function postCourseDB(course: string): Promise<iCourse[]> {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
-    const sql = `insert into courses(course) values($1) returning *`;
+    const sql = 'insert into courses (course) values ($1) returning *';
     const data = (await client.query(sql, [course])).rows;
     await client.query('COMMIT');
     return data;
   } catch (error: any) {
     await client.query('ROLLBACK');
-    console.log(`createCourse: ${error.message}`);
+    console.log(`postCourseDB:${error.message}`);
     return [];
   }
 }
 
-async function updateCourseDB(id: number, course: string): Promise<iCourses[]> {
+async function updateCourseDB(id: number, course: string): Promise<iCourse[]> {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
-    const sql = `update courses set course = $1 where id = $2 returning *`;
+    const sql = 'update courses set course=$1 where id=$2 returning*';
     const data = (await client.query(sql, [course, id])).rows;
     await client.query('COMMIT');
     return data;
   } catch (error: any) {
     await client.query('ROLLBACK');
-    console.log(`updateCourse: ${error.message}`);
+    console.log(`updateCourseDB:${error.message}`);
     return [];
   }
 }
 
-async function deleteCourseDB(id: number): Promise<iCourses[]> {
+async function deleteCourseByIdDB(id: number): Promise<iCourse[]> {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
-    const sql = `delete from courses where id = $1 returning *`;
+    const sql = `delete from courses where id=$1 returning *`;
     const data = (await client.query(sql, [id])).rows;
     await client.query('COMMIT');
     return data;
   } catch (error: any) {
     await client.query('ROLLBACK');
-    console.log(`deleteCourse: ${error.message}`);
+    console.log(`deleteCourseByIdDB:${error.message}`);
     return [];
   }
 }
 
-export { getAllCoursesDB, getCourseByIdDB, createCourseDB, updateCourseDB, deleteCourseDB };
+export { getAllCourseDB, getCourseByIdDB, postCourseDB, updateCourseDB, deleteCourseByIdDB };

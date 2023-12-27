@@ -1,19 +1,19 @@
 import express, { Request, Response } from 'express';
+import { getAllCourse, getCourseById, postCourse, updateCourse, deleteCourseById } from '../service/courses.service';
 import { buildResponse } from '../helper/buildResponse';
-import { getAllCourses, getCourseById, createCourse, updateCourse, deleteCourse } from '../service/courses.service';
 
 const route = express.Router();
 
-route.get('/', async (req: Request, res: Response) :Promise<void>=> {
+route.get('/', async (req: Request, res: Response): Promise<void> => {
   try {
-    const data = await getAllCourses();
+    const data = await getAllCourse();
     buildResponse(res, 200, data);
   } catch (error: any) {
     buildResponse(res, 404, error.message);
   }
 });
 
-route.get('/:id', async (req: Request, res: Response):Promise<void> => {
+route.get('/:id', async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
     const data = await getCourseById(id);
@@ -23,17 +23,17 @@ route.get('/:id', async (req: Request, res: Response):Promise<void> => {
   }
 });
 
-route.post('/', async (req: Request, res: Response) => {
+route.post('/', async (req: Request, res: Response): Promise<void> => {
   try {
     const { course } = req.body;
-    const data = await createCourse(course);
+    const data = await postCourse(course);
     buildResponse(res, 200, data);
   } catch (error: any) {
     buildResponse(res, 404, error.message);
   }
 });
 
-route.put('/:id', async (req: Request, res: Response) => {
+route.put('/:id', async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
     const { course } = req.body;
@@ -44,10 +44,10 @@ route.put('/:id', async (req: Request, res: Response) => {
   }
 });
 
-route.delete('/:id', async (req: Request, res: Response) => {
+route.delete('/:id',  async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
-    const data = await deleteCourse(id);
+    const data = await deleteCourseById(id);
     buildResponse(res, 200, data);
   } catch (error: any) {
     buildResponse(res, 404, error.message);
