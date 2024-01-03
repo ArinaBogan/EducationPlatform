@@ -1,6 +1,6 @@
 import { deleteCourseById, getAllCourse, getCourseById, postCourse, updateCourse } from "../../service/courses.service";
 import * as repository from '../../repository/courses.repository';
-import exp from "constants";
+import ExceptionType from "../../helper/exception";
 
 describe('getAllCourse', () => {
     test('return success', async () => {
@@ -28,7 +28,7 @@ describe('getAllCourse', () => {
         try {
             await getAllCourse()
         } catch (error: any) {
-            expect(error.message).toBe('ExceptionType.DB_GET_COURSES_NOT_FOUND')
+            expect(error.message).toBe(ExceptionType.DB_GET_COURSES_NOT_FOUND)
         }
     });
 });
@@ -51,7 +51,7 @@ describe('getCourseById', () => {
         try {
             await getCourseById(1)
         } catch (error: any) {
-            expect(error.message).toBe('')
+            expect(error.message).toBe(ExceptionType.DB_GET_COURSES_BY_ID_NOT_FOUND)
         }
     });
 
@@ -75,7 +75,7 @@ describe('createCourse', () => {
         try {
             await postCourse('TS')
         } catch (error: any) {
-            expect(error.message).toBe('ExceptionType.DB_POST_COURSES_NOT_UPDATE')
+            expect(error.message).toBe(ExceptionType.DB_POST_COURSES_NOT_UPDATE)
         }
     });
 });
@@ -98,7 +98,7 @@ describe('updateCourse', () => {
         try {
             await updateCourse(1, 'TS');
         } catch (error: any) {
-            expect(error.message).toBe('ExceptionType.DB_PUT_COURSES_NOT_UPDATE')
+            expect(error.message).toBe(ExceptionType.DB_PUT_COURSES_NOT_UPDATE)
         }
     });
 });
@@ -121,7 +121,7 @@ describe('deleteCourse', () => {
         try {
             await deleteCourseById(1);
         } catch (error: any) {
-            expect(error.message).toBe('ExceptionType.DB_DELETE_COURSE_NOT_DELETE')
+            expect(error.message).toBe(ExceptionType.DB_DELETE_COURSES_NOT_DELETE)
         }
     })
 })
