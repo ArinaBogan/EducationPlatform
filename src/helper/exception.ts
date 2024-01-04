@@ -22,6 +22,10 @@ const ExceptionType = {
   USER_PWD_INVALID: 'incorrect pwd',
   USER_PWD_LENGTH: 'pwd length must be more than 8 symbols',
   USER_PWD_IS_EMPTY: 'no pwd',
+
+  API_CHECK_EMAIL: 'user already exist',
+  API_EMAIL_IS_NOT_CREATE: 'email does not create',
+  API_IS_NOT_MATCH_PASSWORD: 'password does not match',
 };
 
 export default ExceptionType;
