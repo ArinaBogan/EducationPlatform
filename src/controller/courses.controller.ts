@@ -44,7 +44,7 @@ route.put('/:id', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-route.delete('/:id',  async (req: Request, res: Response): Promise<void> => {
+route.delete('/:id', async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
     const data = await deleteCourseById(id);
