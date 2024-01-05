@@ -8,6 +8,8 @@ describe('registrationUser test', () => {
         const mockCheckEmail = jest.spyOn(repository, 'getUserByEmailDB');
         mockCheckEmail.mockResolvedValue([]);
 
+        const bcryptHash = jest.spyOn(bcrypt, 'hash');
+        bcryptHash.mockResolvedValue('123')
         const mockRegistration = jest.spyOn(repository, 'registrationUserDB');
         mockRegistration.mockResolvedValue([{
             id: 1,
@@ -22,7 +24,9 @@ describe('registrationUser test', () => {
         expect(result[0].name).toBe('Test1');
         expect(result).toEqual([
             { id: 1, name: 'Test1', surname: 'Test1', email: 'Test@gmail.com', pwd: '123456789' },]
-        )
+        );
+
+        expect(bcryptHash).toHaveBeenCalled();
     });
     test('return error checkEmail', async () => {
         const mockCheckEmail = jest.spyOn(repository, 'getUserByEmailDB');
