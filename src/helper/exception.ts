@@ -3,6 +3,7 @@ const ExceptionType = {
   DB_GET_USER_BY_ID_NOT_FOUND: 'user by id is not found',
   DB_PUT_USER_NOT_UPDATE: 'user does not update',
   DB_DELETE_USER_NOT_DELETE: 'user does not delete',
+  DB_POST_USER_NOT_CREATE: 'user does not create',
 
   DB_GET_COURSES_NOT_FOUND: 'table course is empty',
   DB_GET_COURSES_BY_ID_NOT_FOUND: 'course by id is not found',

@@ -1,4 +1,3 @@
-import exp from 'constants';
 import { getAllUsersDB, getUserByIdDB, updateUserDB, deleteUserDB } from '../../repository/user.repository';
 
 const mClient = {

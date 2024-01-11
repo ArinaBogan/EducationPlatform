@@ -25,7 +25,12 @@ test('getByID', async () => {
 
 test('update', async () => {
   const res = await request(app).put(`/courses/${id}`).send({ course: 'JS' });
-  console.log(res);
   expect(res.statusCode).toBe(200);
   expect(res.body).toHaveLength(1);
+});
+
+test('delete', async () => {
+  const res = await request(app).delete(`/courses/${id}`);
+  expect(res.statusCode).toBe(200);
+  expect(res.body.length).toBe(1);
 });

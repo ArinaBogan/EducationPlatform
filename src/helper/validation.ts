@@ -17,10 +17,10 @@ function isValidUserBody(req: Request, res: Response, next: NextFunction) {
   if (!isNaN(surname)) throw new Error(ExceptionType.USER_SURNAME_INVALID);
 
   if (!email) throw new Error(ExceptionType.USER_EMAIL_IS_EMPTY);
-  if (!/^[\w\.\-\_\$]+@[a-z]+\.+[a-z]{2-5}$/gm.test(email)) throw new Error(ExceptionType.USER_EMAIL_INVALID);
+  if (!/^[\w\S+]+@[a-z]+\.[a-z]{2,5}$/gm.test(email)) throw new Error(ExceptionType.USER_EMAIL_INVALID);
 
   if (!pwd) throw new Error(ExceptionType.USER_PWD_IS_EMPTY);
-  if (!isNaN(pwd)) throw new Error(ExceptionType.USER_PWD_INVALID);
+  if (isNaN(pwd)) throw new Error(ExceptionType.USER_PWD_INVALID);
   if (pwd.length < 8) throw new Error(ExceptionType.USER_PWD_LENGTH);
   next();
 }
