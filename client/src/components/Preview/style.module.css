@@ -1,11 +1,12 @@
-.wrapper{
-  width: 1220px;  
+.wrapper {
+  width: 1220px;
   margin: 4% auto 0;
 }
 
 .wrapper .previewContent {
   display: flex;
   justify-content: space-between;
+  background: var(--Primaty-Grey-Light, #F6F5F4);
 }
 
 .wrapper .previewContent .previewInfo .textPlatform {
@@ -27,10 +28,180 @@
   font: 700 16px 'Montserrat';
 }
 
+.wrapper .previewContent .previewInfo .btn {
+  color: #2B788B;
+  width: 165px;
+  height: 44px;
+  font: 700 16px 'Montserrat';
+  border-radius: 100px;
+  background: var(--Primaty-Cyan-Light, #C3DCE3);
+  text-align: center;
+  padding: 10px 12px;
+  margin-top: 32px;
+}
+
+.wrapper .previewContent .previewInfo .statistic {
+  display: flex;
+  margin-top: 40px;
+}
+
+.wrapper .previewContent .previewInfo .statistic .lightning {
+  background-image: url(./assets/lightning.png);
+  width: 24px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.wrapper .previewContent .previewInfo .statistic .studentsCount {
+  color: #000;
+  font: 400 40px "Dela Gothic One";
+}
+
+.wrapper .previewContent .previewInfo .statistic .studentsCount span {
+  color: #2B788B;
+}
+
+.wrapper .previewContent .previewInfo .textStudents {
+  color: #585858;
+  font: 600 16px 'Montserrat';
+  margin-left: 40px;
+}
+
 .wrapper .previewContent .previewImg {
   background-image: url(./assets/boy.png);
   width: 650px;
   height: 550px;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.wrapper .learnContent {
+  display: flex;
+  justify-content: space-between;
+  background: #FFF;
+  margin-top: 40px;
+}
+
+.wrapper .learnContent .learnMainImg {
+  background-image: url(./assets/girl1.png);
+  width: 580px;
+  height: 445px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: 77px;
+}
+
+.wrapper .learnContent .learnInfo h2 {
+  margin-top: 122px;
+  color: var(--Primaty-Black, #000);
+  font: 400 48px "Dela Gothic One";
+}
+
+.wrapper .learnContent .learnInfo p {
+  color: var(--Primaty-Grey-Dark, #757575);
+  font: 600 18px 'Montserrat';
+  margin-top: 30px;
+}
+
+.wrapper .learnContent .learnImgs {
+  margin-top: 30px;
+  display: flex;
+}
+
+.wrapper .learnContent .learnImgs .shoesImg {
+  background-image: url(./assets/shoes.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 131px;
+  height: 145px;
+  margin-right: 20px;
+}
+
+.wrapper .learnContent .learnImgs .speakerImg {
+  background-image: url(./assets/speaker.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 172px;
+  height: 145px;
+}
+
+.wrapper .knowledgeContent {
+  background: var(--Primaty-Grey-Light, #F6F5F4);
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper .knowledgeContent .knowledgeInfo h2 {
+  font: 400 48px "Dela Gothic One";
+  color: var(--Primaty-Black, #000);
+  margin-top: 100px;
+}
+
+.wrapper .knowledgeContent .knowledgeInfo p {
+  color: var(--Primaty-Grey-Dark, #757575);
+  font: 600 18px 'Montserrat';
+  margin-top: 30px;
+}
+
+.wrapper .knowledgeContent .knowledgeInfo .btn {
+  border-radius: 100px;
+  background: var(--Primaty-Cyan-Light, #C3DCE3);
+  color: #2B788B;
+  font: 700 16px 'Montserrat';
+  width: 130px;
+  height: 45px;
+  text-align: center;
+  margin-top: 34px;
+  padding-top: 12px;
+}
+
+.wrapper .knowledgeContent .knowledgeImg {
+  background-image: url(./assets/girl2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 580px;
+  height: 474px;
+  margin-top: 26px;
+}
+
+.wrapper .progressContent {
+  background: #FFF;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 96px;
+}
+
+.wrapper .progressContent .progressImg {
+  background-image: url(./assets/main.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 680px;
+  height: 410px;
+}
+
+.wrapper .progressContent .progressInfo h2 {
+  color: var(--Primaty-Black, #000);
+  font: 400 48px "Dela Gothic One";
+  width: 475px;
+}
+
+.wrapper .progressContent .progressInfo p {
+  color: var(--Primaty-Grey-Dark, #757575);
+  font: 600 18px ' Montserrat';
+  margin-top: 30px;
+}
+
+.wrapper .progressContent .progressInfo .btn {
+  color: var(--Primaty-Cyan-Dark, #2B788B);
+  font: 700 16px 'Montserrat';
+  border-radius: 100px;
+  background: var(--Primaty-Cyan-Light, #C3DCE3);
+  width: 129px;
+  height: 44px;
+  text-align: center;
+  padding-top: 14px;
+  margin-top: 34px;
 }
