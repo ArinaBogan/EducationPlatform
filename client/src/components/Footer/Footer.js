@@ -10,21 +10,21 @@ return(
         <p>Statistics</p>
         <p>Sprint</p>
       </div>
-      <div className={style.nameFooter}>
+      <div className={style.namesFooter}>
         <p>Alex</p>
         <p>Gabriel</p>
         <p>Marcus</p>
       </div>
     </div>
 
-    <div className={style.bandFooter}></div>
-    <div className={style.linkFooter}>
-      <div className={style.link}>
-        <div className={style.linkCat}></div>
-        <div className={style.linkGt}></div>
-        <div className={style.linkYou}></div>
+    <div className={style.groupsFooter}></div>
+    <div className={style.linksFooter}>
+      <div className={style.imgs}>
+        <div className={style.imgCat}></div>
+        <div className={style.imgGH}></div>
+        <div className={style.imgYT}></div>
       </div>
-      <p className={style.developer}>©2021 Hschool. Project for Hschool</p>
+      <p className={style.text}>©2021 Hschool. Project for Hschool</p>
     </div>
   </div>
 );
