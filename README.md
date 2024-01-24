@@ -73,7 +73,7 @@ To set up and run the educational platform on your local machine, follow these s
 
 2. Install the dependencies for the server and client:
 
-   bash
+   ```bash
    cd educational-platform/server
    npm install
 
@@ -82,7 +82,7 @@ To set up and run the educational platform on your local machine, follow these s
 3. Set up the PostgreSQL database and configure the connection in the server's .env file.
 
 4. Start the server and client applications:
-bash
+```bash
 # Start the server
 cd ./server
 npm run start
@@ -91,7 +91,6 @@ npm run start
 cd ./client
 npm run start
 ```
-
 ## Contributing
 I welcome contributions from the community! If you'd like to contribute, please follow my contribution guidelines.
 
