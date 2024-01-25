@@ -1,0 +1,52 @@
+.wrapper {
+    width: 1220px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin: 80px auto;
+    align-items: center;
+}
+
+.wrapper .textBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.wrapper .textBlock h1 {
+    color: var(--Primaty-Black, #000);
+    font: 400 56px "Dela Gothic One";
+}
+
+.wrapper .textBlock input {
+    height: 60px;
+    width: 519px;
+    padding: 0 12px;
+    border-radius: 2px;
+    border: 1px solid var(--Gray-Gray-4, #CED4DA);
+    outline: none;
+    font: 400 20px 'Montserrat';
+}
+
+.wrapper .textBlock input ::placeholder {
+    color: var(--Gray-Gray-5, #ADB5BD);
+    font: 400 20px 'Montserrat'
+}
+
+.wrapper .textBlock .btn {
+    border-radius: 100px;
+    background: var(--Primaty-Cyan-Dark, #2B788B);
+    width: 110px;
+    color: #FFF;
+    text-align: center;
+    font: 700 16px 'Montserrat';
+    padding: 12px 0;
+}
+
+.wrapper .img {
+    background-image: url(./assets/main.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 481px;
+    height: 320px;
+}
