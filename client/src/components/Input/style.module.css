@@ -1,0 +1,14 @@
+ input {
+    height: 60px;
+    width: 519px;
+    padding: 0 12px;
+    border-radius: 2px;
+    border: 1px solid var(--Gray-Gray-4, #CED4DA);
+    outline: none;
+    font: 400 20px 'Montserrat';
+}
+
+input ::placeholder {
+    color: var(--Gray-Gray-5, #ADB5BD);
+    font: 400 20px 'Montserrat'
+}

@@ -12,7 +12,25 @@
     justify-content: space-between;
 }
 
-.wrapper .item .img {
+.wrapper .item .img1 {
+    background-image: url(./assets/imgForJSandPython.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 337px;
+    height: 216px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+}
+.wrapper .item .img2 {
+    background-image: url(./assets/imgForTS.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 337px;
+    height: 216px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+}
+.wrapper .item .img3 {
     background-image: url(./assets/imgForJSandPython.png);
     background-repeat: no-repeat;
     background-size: contain;
