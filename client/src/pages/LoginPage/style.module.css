@@ -18,21 +18,6 @@
     font: 400 56px "Dela Gothic One";
 }
 
-.wrapper .textBlock input {
-    height: 60px;
-    width: 519px;
-    padding: 0 12px;
-    border-radius: 2px;
-    border: 1px solid var(--Gray-Gray-4, #CED4DA);
-    outline: none;
-    font: 400 20px 'Montserrat';
-}
-
-.wrapper .textBlock input ::placeholder {
-    color: var(--Gray-Gray-5, #ADB5BD);
-    font: 400 20px 'Montserrat'
-}
-
 .wrapper .textBlock .btn {
     border-radius: 100px;
     background: var(--Primaty-Cyan-Dark, #2B788B);
