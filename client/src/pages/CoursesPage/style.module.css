@@ -28,3 +28,6 @@
     font: 400 26px 'Dela Gothic One';
 }
 
+.wrapper .pagination{
+    margin: 70px 400px;
+}

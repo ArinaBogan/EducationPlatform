@@ -1,7 +1,8 @@
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import ItemCourse from "../../components/ItemCourse/ItemCourse";
-import style from "./style.module.css"
+import style from './style.module.css'
+import Pagination from '@mui/material/Pagination';
 
 function CoursesPage() {
     return (
@@ -14,8 +15,12 @@ function CoursesPage() {
                     <h1>Courses</h1>
                 </div>
                 <ItemCourse></ItemCourse>
-            </div>
 
+                <div className={style.pagination}>
+                    <Pagination count={10} variant="outlined" color="primary" />
+                </div>
+            </div>
+            
             <Footer></Footer>
         </>);
 }

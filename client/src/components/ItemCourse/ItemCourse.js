@@ -1,4 +1,5 @@
 import style from "./style.module.css"
+
 function ItemCourse() {
     const languages = [{
         id: 1,
